@@ -14,6 +14,6 @@ api.add_listener(
             'python-27': cover_codes.unwrap_args,  # or None
             'python-3': cover_codes.unwrap_args
         },
-        checkers.float_comparison(2),
+        checker=checkers.float_comparison(2),
         function_name="simple_areas"
     ).on_ready)

@@ -1,39 +1,69 @@
 <p>
-    <i>( Describe task in general )</i>
+    Stephan works simple forms when construct something and he need some programming tools for calculating expenses.
+    Let's remember school and simple geometry for this.
 </p>
 
 <p>
-    Sum two passed ints
+    You should write a function to calculate area of simple figures: circle, rectangle and triangle.
+    You are give arbitrary number of arguments and ыepending on this the function calculates area for the different
+    figures.
 </p>
 
-<p style="text-align: center;">
-    <img class="for_info_only" title="example" src="{{MEDIA}}example.png" alt="example" width="392px"/>
-    <img class="for_editor_only" title="example" src="{{MEDIA}}example.png" alt="example" width="380px"/>
-</p>
+<div>
+    <ul>
+        One argument -- diameter of a circle and you need calculate the area of the circle;
+    </ul>
+    <ul>
+        Two arguments -- Side lengths of a rectangle and you need calculate the area of the rectangle;
+    </ul>
+    <ul>
+        Three arguments -- Side lengths of a triangle and you need calculate the area of the rectangle;
+    </ul>
+</div>
 
-<p><i>( Explain input and output values )</i></p>
 <p>
-    <strong>Input: </strong> Two arguments. Both are int
+    The result should be given with two digits precision as &plusmn;0.01.
+        </p>
+<p>
+    <strong>Tips: </strong> Think about how to work with
+    {% if "python 2" in interpreter|lower %}
+    <a href="http://docs.python.org/2/tutorial/controlflow.html#arbitrary-argument-lists">an arbitrary number of
+        arguments</a>.
+    {% else %}
+    <a href="http://docs.python.org/3/tutorial/controlflow.html#arbitrary-argument-lists">an arbitrary number of
+        arguments</a>.
+    {% endif %}
+</p>
+<p>
+    <strong>Input: </strong> One, two or three arguments as floats.
 </p>
 
 <p>
-    <strong>Output: </strong> Int. 
+    <strong>Output: </strong> The area of the circle, the rectangle or the triangle as a float.
 </p>
-
 
 
 <div class="for_info_only">
-    <p><i>( Put some usage examples )</i></p>
     <p>
         <strong>Example:</strong>
     </p>
     <pre class="brush: python">
-checkio(3, 2) == 5
-checkio(5, 7) == 12
+checkio(2) == 3.14
+checkio(2, 2) == 4
+checkio(2, 3) == 6
+checkio(3, 5, 4) == 6
+checkio(1.5, 2.5, 2) == 3
     </pre>
 </div>
 
 <p class="for_info_only">
     <strong>How it is used: </strong>
-    <i>(Here you can explain how it can be used in development and what is usage of this.)</i>
+
+</p>
+
+
+<p>
+    <strong>Precondition:</strong> 0 &lt; |args| &le; 3<br>
+    &forall; x ∈ args : 0 &lt; x &le; 1000;<br>
+    For "triangle" cases the sum of the lengths of any two sides always exceeds the length of the third side.
 </p>

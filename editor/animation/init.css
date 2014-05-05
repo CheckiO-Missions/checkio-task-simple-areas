@@ -58,6 +58,11 @@
     border-color: #de0202;
 }
 
+
+.animation-content .explanation svg {
+    padding: 5px;
+}
+
 .tryit-content {
     background-color: #dfe8f7;
     font-family: Verdana, Arial, helvetica, sans-serif;

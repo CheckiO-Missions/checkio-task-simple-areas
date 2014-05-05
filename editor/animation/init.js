@@ -42,7 +42,7 @@ requirejs(['ext_editor_1', 'jquery_190', 'raphael_210'],
             var checkioInput = data.in;
             var checkioInputStr = 'simple_areas(' + checkioInput + ')';
 
-            var failError = function(dError) {
+            var failError = function (dError) {
                 $content.find('.call').html('Fail: ' + checkioInputStr);
                 $content.find('.output').html(dError.replace(/\n/g, ","));
 
@@ -85,16 +85,9 @@ requirejs(['ext_editor_1', 'jquery_190', 'raphael_210'],
                 $content.find('.call').html('Pass: ' + checkioInputStr);
                 $content.find('.answer').remove();
             }
-            //Dont change the code before it
 
-            //Your code here about test explanation animation
-            //$content.find(".explanation").html("Something text for example");
-            //
-            //
-            //
-            //
-            //
-
+            var canvas = new SimpleAreasCanvas();
+            canvas.draw($content.find(".explanation")[0], checkioInput);
 
             this_e.setAnimationHeight($content.height() + 60);
 
@@ -113,6 +106,51 @@ requirejs(['ext_editor_1', 'jquery_190', 'raphael_210'],
 //                this_e.sendToConsoleCheckiO("something");
 //            });
 //        });
+
+        function SimpleAreasCanvas() {
+            var x0 = 10,
+                y0 = 10;
+
+            var size = 200;
+
+            var paper;
+
+            var attrFig = {"stroke-width": 4, "stroke": colorBlue4, "fill": colorBlue1};
+
+            this.draw = function (dom, args) {
+                if (args.length == 1) {
+                    paper = Raphael(dom, size, size);
+                    paper.circle(100, 100, 100).attr(attrFig);
+                }
+                else if (args.length == 2) {
+                    var a = Math.max(args[0], args[1]);
+                    var b = Math.min(args[0], args[1]);
+                    paper = Raphael(dom, size, size * b / a);
+                    paper.rect(0, 0, size, size * b / a).attr(attrFig);
+                }
+                else {
+                    var sides = args.slice();
+                    sides = sides.sort(function (a, b) {
+                        return b - a
+                    });
+                    var unit = size / sides[0];
+                    var middle_point = sides[1] * (Math.pow(sides[0], 2) + Math.pow(sides[1], 2) - Math.pow(sides[2], 2)) / (2 * sides[0] * sides[1]);
+                    var height = Math.sqrt(Math.pow(sides[1], 2) - Math.pow(middle_point, 2));
+                    var sizeY = height * unit;
+                    paper = Raphael(dom, size, sizeY, 0, 0);
+                    paper.path(Raphael.format(
+                        "M{0},{1}H{2}L{3},{4}L{0},{1}Z",
+                        0,
+                        sizeY,
+                        size,
+                        middle_point * unit,
+                        0
+                    )).attr(attrFig);
+
+
+                }
+            }
+        }
 
         var colorOrange4 = "#F0801A";
         var colorOrange3 = "#FA8F00";

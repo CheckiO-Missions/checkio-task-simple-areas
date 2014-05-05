@@ -7,25 +7,21 @@ Each test is dict with
     "explanation" -- not necessary key, it's using for additional info in animation.
 """
 
-
 TESTS = {
     "Basics": [
-        {"input": 7.07, "answer": [3]},
-{"input": 4, "answer": [2, 2]},
-{"input": 6, "answer": [2, 3]},
-{"input": 6.0, "answer": [3, 5, 4]},
-{"input": 1.5, "answer": [1.5, 2.5, 2]},
+        {"input": [3], "answer": 7.07},
+        {"input": [2, 2], "answer": 4},
+        {"input": [2, 3], "answer": 6},
+        {"input": [3, 5, 4], "answer": 6.0},
+        {"input": [1.5, 2.5, 2], "answer": 1.5},
+
     ],
     "Extra": [
-        {
-            "input": [6, 3],
-            "answer": 9,
-            "explanation": "6+3=?"
-        },
-        {
-            "input": [6, 7],
-            "answer": 13,
-            "explanation": "6+7=?"
-        }
+        {"input": [3], "answer": 7.07},
+        {"input": [2, 2], "answer": 4},
+        {"input": [2, 3], "answer": 6},
+        {"input": [3, 5, 4], "answer": 6.0},
+        {"input": [1.5, 2.5, 2], "answer": 1.5},
+
     ]
 }

@@ -76,7 +76,8 @@ simple_areas(1.5, 2.5, 2) == 1.5
 </p>
 
 <p>
-    <strong>Precondition:</strong> 0 &lt; |args| &le; 3<br>
-    &forall; x ∈ args : 0 &lt; x &le; 1000;<br>
+    <strong>Precondition:</strong><br>
+    0 &lt; len(args) &le; 3<br>
+    all(0 &lt; x &le; 1000 for x in args)<br>
     For "triangle" cases the sum of the lengths of any two sides always exceeds the length of the third side.
 </p>

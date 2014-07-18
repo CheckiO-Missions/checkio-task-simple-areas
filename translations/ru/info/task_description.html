@@ -1,0 +1,80 @@
+<p>
+    Стефан постоянно работает с простыми фигурами, когда строит что либо.
+    И ему не помешал бы специальный калькулятор для расчетов расхода материалов.
+    Давайте вспомним знания полученные на школьной скамье и достанем оттуда геометрию.
+</p>
+
+<p>
+    Вам нужно написать функцию для подсчета площади простых фигур: круга, прямоугольника и треугольника.
+    Дано различное число аргументов и в зависимости от их числа,
+    ваша функция должна считать площадь различных фигур.
+</p>
+
+<div>
+    <ul>
+        Один аргумент -- диаметр круга и нужно рассчитать площадь круга.
+    </ul>
+    <ul>
+        Два аргумента -- стороны прямоугольника и нужна площадь этого прямоугольника.
+    </ul>
+    <ul>
+        Три аргумента -- длины сторон треугольника и нужно рассчитать площадь треугольника.
+    </ul>
+</div>
+
+<p class="for_info_only" style="text-align: center"><img title="simple-areas"
+                                                         src="{{ MEDIA }}simple-areas.png"
+                                                         alt="simple-areas"
+                                                         width="600px"/></p>
+<p class="for_editor_only" style="text-align: center"><img title="simple-areas"
+                                                           src="{{ MEDIA }}simple-areas.png"
+                                                           alt="simple-areas"
+                                                           width="380px"/></p>
+
+
+<p>
+    Результат должен быть с точностью до &plusmn;0.01.
+        </p>
+<p>
+    <strong>Примечания: </strong> Думаю вы знаете, как работать с
+    {% if "python 2" in interpreter|lower %}
+    <a href="http://docs.python.org/2/tutorial/controlflow.html#arbitrary-argument-lists">переменным числом аргументов</a>.
+    {% else %}
+    <a href="http://docs.python.org/3/tutorial/controlflow.html#arbitrary-argument-lists">переменным числом аргументов</a>.
+    {% endif %}
+</p>
+<p>
+    <strong>Входные данные: </strong> Один, два или три аргумента, как числа (int, float).
+</p>
+
+<p>
+    <strong>Выходные данные: </strong>Площадь фигуры, как число (float, int).
+</p>
+
+
+<div class="for_info_only">
+    <p>
+        <strong>Примеры:</strong>
+    </p>
+    <pre class="brush: python">
+simple_areas(3) == 7.07
+simple_areas(2, 2) == 4
+simple_areas(2, 3) == 6
+simple_areas(3, 5, 4) == 6
+simple_areas(1.5, 2.5, 2) == 1.5
+    </pre>
+</div>
+
+<p class="for_info_only">
+    <strong>Зачем это нужно: </strong>
+    Python может служить полезным инструментом для математиков и ученных.
+    Вы легко можете реализовать любую формулу или математические процедуры без использования сложных математических пакетов.
+
+</p>
+
+<p>
+    <strong>Предусловия:</strong><br>
+    0 &lt; len(args) &le; 3<br>
+    all(0 &lt; x &le; 1000 for x in args)<br>
+    Для случая с треугольником, любые две стороны в сумме больше третей.
+</p>
